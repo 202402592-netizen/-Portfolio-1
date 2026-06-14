@@ -1,0 +1,554 @@
+/* =============================================
+   PORTFOLIO – Sara Mohamed
+   Color Palette: Pink & Lavender on Dark
+   ============================================= */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --bg:          #1b1828;   /* خلفية الصفحة — بنفسجي غامق جداً */
+  --bg-card:     #241e35;   /* خلفية الكروت — أفتح شوية */
+  --bg-nav:      #1b1828;   /* خلفية الـ navbar */
+  --pink:        #f472b6;   /* اللون الوردي الأساسي */
+  --pink-dark:   #db2777;   /* وردي أغمق للـ hover */
+  --lavender:    #c084fc;   /* بنفسجي فاتح للتنوع */
+  --text:        #ede9f6;   /* لون النص الرئيسي */
+  --text-muted:  #9d8fba;   /* لون النص الثانوي */
+  --white:       #ffffff;
+  --radius:      12px;
+  --transition:  0.35s ease;
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Reusable Heading ---------- */
+.heading {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 3rem;
+}
+
+.heading span {
+  color: var(--pink);
+}
+
+/* ---------- Reusable Button ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.8rem;
+  background: transparent;
+  border: 2px solid var(--pink);
+  color: var(--pink);
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn:hover {
+  background: var(--pink);
+  color: var(--white);
+  box-shadow: 0 0 18px rgba(244, 114, 182, 0.5);
+}
+
+/* =============================================
+   NAVBAR
+   ============================================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.1rem 7%;
+  background: var(--bg-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(244, 114, 182, 0.1);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.navbar a {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-left: 2rem;
+  font-weight: 500;
+  transition: color var(--transition);
+  position: relative;
+}
+
+/* خط وردي بيظهر تحت الرابط عند الـ hover */
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--pink);
+  transition: width var(--transition);
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--pink);
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 100%;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--pink);
+}
+
+/* =============================================
+   HERO SECTION
+   ============================================= */
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0 7%;
+  padding-top: 90px;
+}
+
+.home-content h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.home-content h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.1;
+  margin: 0.2rem 0;
+}
+
+.home-content h3:last-of-type {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+/* النص اللي بيكتبه Typed.js */
+.typed-text {
+  color: var(--pink);
+  font-weight: 600;
+}
+
+/* الـ cursor اللي بيبرق */
+.cursor {
+  color: var(--lavender);
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.home-content p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  max-width: 440px;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--pink);
+  color: var(--pink);
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.social-icons a:hover {
+  background: var(--pink);
+  color: var(--white);
+  box-shadow: 0 0 14px rgba(244, 114, 182, 0.5);
+  transform: translateY(-3px);
+}
+
+/* Hero Image */
+.home-img img {
+  width: 340px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 3px solid var(--pink);
+  box-shadow: 0 0 40px rgba(244, 114, 182, 0.2);
+}
+
+/* =============================================
+   ABOUT
+   ============================================= */
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 6rem 7%;
+  background: var(--bg-card);
+}
+
+.about-img img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 3px solid var(--lavender);
+  box-shadow: 0 0 30px rgba(192, 132, 252, 0.2);
+}
+
+.about-content .heading {
+  text-align: left;
+  margin-bottom: 0.4rem;
+}
+
+.about-content h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--lavender);
+  margin-bottom: 1rem;
+}
+
+.about-content p {
+  color: var(--text-muted);
+  font-size: 0.93rem;
+  margin-bottom: 1.6rem;
+  max-width: 480px;
+}
+
+/* =============================================
+   SERVICES
+   ============================================= */
+.services {
+  padding: 6rem 7%;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+.service-box {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 2rem 1.6rem;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.service-box:hover {
+  border-color: var(--pink);
+  box-shadow: 0 0 24px rgba(244, 114, 182, 0.15);
+  transform: translateY(-5px);
+}
+
+.service-box i {
+  font-size: 2.6rem;
+  color: var(--pink);
+  margin-bottom: 0.8rem;
+}
+
+.service-box h3 {
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+
+.service-box p {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+/* =============================================
+   PORTFOLIO
+   ============================================= */
+.portfolio {
+  padding: 6rem 7%;
+  background: var(--bg-card);
+}
+
+.portfolio-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+}
+
+.portfolio-box {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.portfolio-box img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-box:hover img {
+  transform: scale(1.08);
+}
+
+/* Overlay بيظهر عند hover */
+.portfolio-layer {
+  position: absolute;
+  inset: 0;
+  background: rgba(219, 39, 119, 0.88);  /* وردي غامق شفاف */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.portfolio-box:hover .portfolio-layer {
+  opacity: 1;
+}
+
+.portfolio-layer h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+
+.portfolio-layer p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 0.8rem;
+}
+
+.portfolio-layer a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--pink-dark);
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.portfolio-layer a:hover {
+  background: var(--lavender);
+  color: var(--white);
+}
+
+/* =============================================
+   CONTACT
+   ============================================= */
+.contact {
+  padding: 6rem 7%;
+}
+
+.contact-form {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.input-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  background: var(--bg-card);
+  border: 1.5px solid rgba(244, 114, 182, 0.2);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color var(--transition);
+  outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 12px rgba(244, 114, 182, 0.15);
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form .btn {
+  align-self: center;
+  padding: 0.8rem 2.4rem;
+  font-size: 1rem;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer {
+  background: var(--bg-card);
+  padding: 1.4rem 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-top: 1px solid rgba(244, 114, 182, 0.12);
+}
+
+.footer p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-icons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.footer-icons a {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.footer-icons a:hover {
+  color: var(--pink);
+}
+
+/* =============================================
+   SCROLLBAR
+   ============================================= */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--pink);
+  border-radius: 6px;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+  .home {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 110px;
+    padding-bottom: 3rem;
+  }
+
+  .social-icons { justify-content: center; }
+
+  .home-content p { margin-left: auto; margin-right: auto; }
+
+  .home-img img { width: 260px; height: 260px; }
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-content .heading { text-align: center; }
+}
+
+@media (max-width: 620px) {
+  .header { padding: 1rem 5%; }
+
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: var(--bg-nav);
+    flex-direction: column;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(244,114,182,0.1);
+  }
+
+  .navbar.open { display: flex; }
+  .navbar a { margin: 0.5rem 2rem; }
+  .menu-icon { display: block; }
+
+  .input-box { grid-template-columns: 1fr; }
+  .heading { font-size: 1.9rem; }
+  .home-content h1 { font-size: 2.8rem; }
+  .portfolio-box img { height: 200px; }
+}
